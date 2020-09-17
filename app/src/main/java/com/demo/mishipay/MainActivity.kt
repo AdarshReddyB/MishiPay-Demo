@@ -2,9 +2,11 @@ package com.demo.mishipay
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.demo.mishipay.model.Product
+import com.demo.mishipay.model.Store
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 import com.journeyapps.barcodescanner.CaptureActivity
@@ -13,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : CaptureActivity() {
 
+    var products = ArrayList<Product>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,8 +24,15 @@ class MainActivity : CaptureActivity() {
 
         scan_btn.setOnClickListener {
             //initializeScan()
-            IntentIntegrator(this).setCaptureActivity(MainActivity::class.java).initiateScan()
+            IntentIntegrator(this).initiateScan()
         }
+
+        products.add(Product(imageURl = "", description = "Asdf", name = "Product 1", price = 1.22, id = "1"))
+        products.add(Product(imageURl = "", description = "Asdf", name = "Product 2", price = 1.22,id = "2"))
+        products.add(Product(imageURl = "", description = "Asdf", name = "Product 3", price = 1.22, id = "3"))
+        products.add(Product(imageURl = "", description = "Asdf", name = "Product 4", price = 1.22, id = "4"))
+
+        Preferences().saveStore(this, Store(products, "LocalStore", "Bangalore"))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
