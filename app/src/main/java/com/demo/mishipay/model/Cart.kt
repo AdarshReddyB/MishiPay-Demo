@@ -1,7 +1,14 @@
 package com.demo.mishipay.model
 
-data class Cart (
+class Cart {
 
-    val scannedProducts:List<Product>
+    private var scannedProducts:ArrayList<Product> = ArrayList()
 
-)
+    fun add(product: Product) {
+        scannedProducts.add(product)
+    }
+
+    fun getProducts(): ArrayList<Product> {
+        return scannedProducts
+    }
+}

@@ -1,10 +1,13 @@
 package com.demo.mishipay.model
 
-data class Product (
+import androidx.annotation.DrawableRes
+import androidx.annotation.IntegerRes
+
+data class Product(
 
     val id:String? = null,
 
-    val imageURl: String? = null,
+    val imageURl: Int = 0,
 
     val description: String? = null,
 
