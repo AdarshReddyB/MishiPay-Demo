@@ -1,0 +1,2 @@
+rootProject.name='MishiPay'
+include ':app'
