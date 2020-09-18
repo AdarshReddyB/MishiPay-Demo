@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             Product(
                 imageURl = R.drawable.t_shirt,
                 description = "T shirt by Puma",
-                name = "Adidas T shirt",
+                name = "Puma round neck T shirt",
                 price = 700.00,
                 id = "ABC1001"
             )
